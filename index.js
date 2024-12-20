@@ -1,8 +1,12 @@
-let myImage = document.getElementById("nextButton");
+let myImage = document.getElementById("myImage");
 let myArtist = document.getElementById("myArtist");
 let myTitle = document.getElementById("myTitle");
 let myAudio = document.getElementById("myAudio");
 let nextButton = document.getElementById("nextButton");
+let play = document.getElementById("playButton");
+let pause = document.getElementById("pauseButton");
+let reset = document.getElementById("resetButton");
+
 let currentIndex = 0;
 
 let playlist = [{
@@ -34,6 +38,18 @@ function updateTrack() {
     myAudio.load();
     myAudio.play();
 }
+
+play.addEventListener("click", ()=> {
+    myAudio.play();
+})
+
+pause.addEventListener("click", ()=> {
+    myAudio.pause()
+})
+
+reset.addEventListener("click", ()=> {
+    myAudio.currentTime = 0;
+})
 
 nextButton.addEventListener("click", ()=> {
     currentIndex = (currentIndex + 1) % playlist.length;
